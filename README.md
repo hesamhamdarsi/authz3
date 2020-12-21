@@ -2,7 +2,9 @@
 
 ### 1-pyjwt package
 this package is for JWT token encode and decode 
+
 you can test your jwt through https://jwt.io/ website
+
 you can also check all liberaries of jwt for all programming language here in this site
 
 we have a series of algorithms for encryption:
@@ -21,7 +23,10 @@ you can see all functions and classes of jwt using your terminal:
 ['DecodeError', 'ExpiredSignature', 'ExpiredSignatureError', 'ImmatureSignatureError', 'InvalidAlgorithmError', 'InvalidAudience', 'InvalidAudienceError', 'InvalidIssuedAtError', 'InvalidIssuer', 'InvalidIssuerError', 'InvalidSignatureError', 'InvalidTokenError', 'MissingRequiredClaimError', 'PyJWS', 'PyJWT', 'PyJWTError', '__author__', '__builtins__', '__cached__', '__copyright__', '__doc__', '__file__', '__license__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__title__', '__version__', 'algorithms', 'api_jws', 'api_jwt', 'compat', 'decode', 'encode', 'exceptions', 'get_unverified_header', 'register_algorithm', 'unregister_algorithm', 'utils']
 
 ```
-#### there are to main function so. encode and decode
+there are to main function so. 
+#### encode 
+and 
+#### decode
 ```
 >>> jwt.encode({"username": "hesam"} , "123456")
 b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imhlc2FtIn0.zI_X9pISTvl8DG2SE7sfALdB2HjJWFrceHzr7xVdOEY'
@@ -40,7 +45,8 @@ example of setting other variables:
 >>> jwt.encode({"username": "hesam", "exp": time.time()+25, "nbf": time.time(), "iat": time.time()} , "123456", algorithm="HS512")
 b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZS...IlK2fQs_kM8Bme-1SWaCY'
 ```
-#### Notice: b'.....' -> b=binary. so when you want to send it to client, you need to convert it to utf-8. so:
+#### Notice: 
+b'.....' -> b=binary. so when you want to send it to client, you need to convert it to utf-8. so:
 ```
 >>> jwt.encode({"username": "hesam", "exp": time.time()+25, "nbf": time.time(), "iat": time.time()} , "123456", algorithm="HS512").decode("utf8)
 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZS...IlK2fQs_kM8Bme-1SWaCY'
@@ -63,7 +69,11 @@ So the Idea behind this is when a client/user get this token, it can talk with a
 ---
 ### 2- auth file:
 
-we are going to add a directory called decorator -> Project > authz > authz > decorator
+we are going to add a directory called decorator: Project > authz > authz > decorator
+
 we are going to create "auth.py" file in the following directories:
+
 Project > authz > authz > controller > apiv1
+
 Project > authz > authz > resource > apiv1
+
