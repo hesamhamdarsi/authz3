@@ -23,10 +23,8 @@ you can see all functions and classes of jwt using your terminal:
 ['DecodeError', 'ExpiredSignature', 'ExpiredSignatureError', 'ImmatureSignatureError', 'InvalidAlgorithmError', 'InvalidAudience', 'InvalidAudienceError', 'InvalidIssuedAtError', 'InvalidIssuer', 'InvalidIssuerError', 'InvalidSignatureError', 'InvalidTokenError', 'MissingRequiredClaimError', 'PyJWS', 'PyJWT', 'PyJWTError', '__author__', '__builtins__', '__cached__', '__copyright__', '__doc__', '__file__', '__license__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__title__', '__version__', 'algorithms', 'api_jws', 'api_jwt', 'compat', 'decode', 'encode', 'exceptions', 'get_unverified_header', 'register_algorithm', 'unregister_algorithm', 'utils']
 
 ```
-there are to main function so. 
-#### encode 
-and 
-#### decode
+there are to main function so:
+#### encode and decode
 ```
 >>> jwt.encode({"username": "hesam"} , "123456")
 b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imhlc2FtIn0.zI_X9pISTvl8DG2SE7sfALdB2HjJWFrceHzr7xVdOEY'

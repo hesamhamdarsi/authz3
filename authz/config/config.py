@@ -16,4 +16,5 @@ class AuthConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = DEBUG     #too see the changes that we have on objects 
 
     JWT_TOKEN_LIFETIME = int(environ.get("AUTHZ_JWT_TOKEN_LIFETIME" , 100))
-    SECRET = environ.get("AUTH_SECRET" , "Hard-secret")
+    JWT_SECRET = environ.get("AUTH_SECRET" , "Hard-secret")
+    JWT_ALG = environ.get("AUTH_JWT_ALG" , "HS512")

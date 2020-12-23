@@ -3,10 +3,11 @@ from flask import abort
 from authz.model import Model_user
 from flask import request      # we want to use POST, so we need to read requests coming from user
 from authz.schema.apiv1 import UsreSchema
-
+from authz.decorator.apiv1 import auth_required
 class User_Controller:
 
     #maybe its query and not Query
+    @auth_required
     def get_users():
         users = Model_user.query.all()
         #we want to use UserSchema, to check the validity of imformation that user ask for or send to us

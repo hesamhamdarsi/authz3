@@ -7,7 +7,7 @@ class AuthResource(Resource):
         """
         GET /auth/tokens  --> verify JWT token
         """
-        pass
+        return AuthController.verify_token()
 
     def post(self):
         """

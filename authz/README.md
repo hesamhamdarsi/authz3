@@ -65,3 +65,10 @@ this way, we don't need to remove anything from our code, if we wanted to switch
 # app.register_blueprint(bp_apiv1)
 app.register_blueprint(bp_apiv2)
 ```
+
+#### Serialization and deserialization:
+Serialization means to convert an object into that string, and deserialization is its inverse operation. There are many third parties library that are “must have” libraries that are extremely popular and are often used in almost any android project
+
+#### Flask-marshmallow:
+https://flask-marshmallow.readthedocs.io/en/latest/
+https://api-university.com/blog/rest-apis-with-hateoas/
