@@ -6,6 +6,15 @@ from jwt.exceptions import ExpiredSignatureError
 from authz.config import AuthConfig
 from authz.model import Model_user
 
+#here we should use database, and we should use role instead of username. but to simplify we used a dictionary
+function_role_mapper = {
+    "get_users": {
+        "users": ["admin"]                 #if it was admin user, it can query all_users
+    },
+    "get_user": {
+        "users": ["admin", ":user_id"]     #if it was admin user, or userx, it can see the userx information
+    }
+}
 
 def auth_required(func):
     @wraps(func)
@@ -28,5 +37,15 @@ def auth_required(func):
         user = Model_user.query.get(jwt_token_data["user_id"])
         if user is None:
             abort(404)
-        return func(*args , **kwargs)
+        func_mapper = function_role_mapper[func.__name__]
+        if user.username in func_mapper["users"]:
+            return func(*args , **kwargs)
+        elif ":user_id" in func_mapper["users"]:
+            user_id_mapper = func.__code__.co_varnames.index("user_id")
+            if args[user_id_mapper] == user.id:
+                return func(*args , **kwargs)
+            else:
+                abort(403)
+        else:
+            abort(403)
     return wrapper
