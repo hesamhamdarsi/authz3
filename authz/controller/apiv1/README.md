@@ -33,3 +33,4 @@ https://github.com/aress31/jwtcat
 
 get_users():
 we are using a decorator on this function, so whenever a get_users() is called, the client need to first send its auth_token. otherwise, he will be unauthorized 
+check "README" on authz/decorator/apivi  

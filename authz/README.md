@@ -72,3 +72,33 @@ Serialization means to convert an object into that string, and deserialization i
 #### Flask-marshmallow:
 https://flask-marshmallow.readthedocs.io/en/latest/
 https://api-university.com/blog/rest-apis-with-hateoas/
+
+---
+### tesing backend services 
+through the below config, we're going to add a command prompt for our application to help us to realize is every test before running the application passed
+
+```python
+from flask.cli import AppGroup
+app_cli = AppGroup("app" , help= "Application related commands.")
+def create_app():
+    ...
+    app.cli.add_command(app_cli)
+    ...
+
+```
+using these codes, you'll see the command name(app) and description(Application related commands.) are added to flask.
+```
+flask --help
+Commands:
+  app     Application related commands.
+  db      Perform database migrations.
+  routes  Show the routes for the app.
+  run     Run a development server.
+  shell   Run a shell in the app context.
+```
+now we need to define our tests, for that we'll make another directory called "command" and its corresponding files and directories:
+authz > authz > command > __init__.py
+authz > authz > command > app > __init__.py
+authz > authz > command > app > test.py
+
+check the command > app > README.md

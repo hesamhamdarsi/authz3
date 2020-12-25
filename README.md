@@ -1,4 +1,4 @@
-# Session 11: 
+# Session 11-12-13: 
 
 ### 1-pyjwt package
 this package is for JWT token encode and decode 
@@ -65,9 +65,7 @@ jwt.exceptions.ExpiredSignatureError: Signature has expired
 So the Idea behind this is when a client/user get this token, it can talk with all services through this token and as far as all micriservices have the key, they can open this token and verify it. 
 
 ---
-### 2- auth file:
-
-we are going to add a directory called decorator: Project > authz > authz > decorator
+### 2-auth file:
 
 we are going to create "auth.py" file in the following directories:
 
@@ -75,3 +73,9 @@ Project > authz > authz > controller > apiv1
 
 Project > authz > authz > resource > apiv1
 
+---
+### 3-Decorator:
+
+we are going to add a directory called decorator: Project > authz > authz > decorator
+through decorator, we can specify authentication from some resources. for instance, normal users shouldn't be able to see the list of all users
+why we should use decorator? because we want if anyone called get_users() function, frist have to be authenticated, but we don't want this to be done by changing in get_users() function. we need to devorate get_users() functions and add some capabilities to it (auth check). 

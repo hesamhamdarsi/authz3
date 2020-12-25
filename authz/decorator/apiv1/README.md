@@ -53,12 +53,18 @@ def auth_required(func):
             abort(403)
     return wrapper
 ```
-Wrap will get the function
-Wrapper will take all or its argumants, and then Wrapper will be applied on that
+### @Wrapss
+Wraps is a decorator, that take a function and you can use that to get the name of that function or you can call any built-in function that is related to that function --> "dir(func)"
+you could create auth_required without @wrapps, but then 
+Wraps will get the function but then it the following line "func.__name__" would return "auth_required" instead of "get_user() and "get_users()" name:
+func_mapper = function_role_mapper[func.__name__]
+@Wraps always apply on Wrapper function, so you need to make Wrapper function for that
 
-then we apply this decorator on controller where we are calling get_users() or any other function which need auth
+let's explain decorator and wraps simply in:
+Authz > other references > decorator.md
 
 
+---
 Role based access control:
 in reality, we need to make role for every user in DB and check that to auth people for certain resources. but here in this example we use a dictionary to spesify the users that have access to all user information or an spesific user information.
 we want to say if a normal user want his information, he can grab it, but only admin user can get all users information and all spesific users information.
@@ -112,6 +118,13 @@ through code, we can check function argumants and indexs:
 'user_id'
 
 ```
+__annotations__  will be used to add tags/lables to the function
+__closure__      will be used to detect if our function is a closure function (has a parent function)
+
+
+### fulle explaintion of all methods:
+https://www.tutorialsteacher.com/python/magic-methods-in-python
+
 
 #### so we use this capablities to return data that we want from the function. 
 in function_role_mapper dictionary, we have two keys that their names are in fact functions name that we have in controller section
