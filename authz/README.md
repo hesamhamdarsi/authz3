@@ -97,8 +97,10 @@ Commands:
   shell   Run a shell in the app context.
 ```
 now we need to define our tests, for that we'll make another directory called "command" and its corresponding files and directories:
+```
 authz > authz > command > __init__.py
 authz > authz > command > app > __init__.py
 authz > authz > command > app > test.py
+```
 
 check the command > app > README.md

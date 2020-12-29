@@ -1,2 +1,2 @@
-from authz.controller import apiv1
 from authz.config import config
+from authz.controller import apiv1

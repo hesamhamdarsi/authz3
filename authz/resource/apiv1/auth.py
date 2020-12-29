@@ -1,8 +1,9 @@
 from flask_restx import Resource
+
 from authz.controller.apiv1.auth import AuthController
 
-class AuthResource(Resource):
 
+class AuthResource(Resource):
     def get(self):
         """
         GET /auth/tokens  --> verify JWT token
@@ -13,4 +14,4 @@ class AuthResource(Resource):
         """
         POST /auth/tokens  --> Create a new JWT token
         """
-        return AuthController.create_token() 
+        return AuthController.create_token()

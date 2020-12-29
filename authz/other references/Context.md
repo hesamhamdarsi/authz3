@@ -49,3 +49,6 @@ current_app.config
 
 ctx.pop()   #when we're done
 ```
+
+https://flask.palletsprojects.com/en/1.1.x/appcontext/
+

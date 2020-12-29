@@ -79,3 +79,58 @@ Project > authz > authz > resource > apiv1
 we are going to add a directory called decorator: Project > authz > authz > decorator
 through decorator, we can specify authentication from some resources. for instance, normal users shouldn't be able to see the list of all users
 why we should use decorator? because we want if anyone called get_users() function, frist have to be authenticated, but we don't want this to be done by changing in get_users() function. we need to devorate get_users() functions and add some capabilities to it (auth check). 
+
+---
+### 4- Test application backing services and dependencies:
+we'll add the following directorie and files:
+authz > authz > command > app > test.py
+authz > start.py
+#### notice: we better ti use bash script, so there is another file here to do the same test using bash script:
+authz > start.sh
+1-chech authz> __init__.py manual page
+2- authz > command > app > README.md
+
+---
+### 5-Containerize the project:
+steps:
+5-1-Creating Dockerfile in authz >
+5-2-creating .dockerignore file to prevent to ship all files inside our directory. for instance, we don't want to send venv directory and so on. 
+the content of this file is exactly like .gitignore and we also add .gitignore in this file (we need to add .dockerignore in .gitignore file later on)
+you can check Dockerfile
+5-3- in production, we don't use "flask run" and instead we use another WSGI server called "gunicorn"
+```
+pip install gunicorn
+```
+now in order to run our application we can use;
+```
+gunicorn -b 0.0.0.0:8005 -w 6 --threads 3 --access-logfile - --error-logfile - --log-level - "authz:create_app()"
+```
+if we start to build Dockerfile, we'll get an error for shared package, becuase in Dockerfile, the path for shared package which is a local package is not clear.
+to solve that, we need to first create an image from Shared and build that, and then build our main app from that image.
+chech the Dockerfile in shared folder 
+
+After that, we should remove shared package from our main app requirements.txt file because it will be imported through the shared image
+```
+pip uninstall shared
+```
+
+---
+### 6-Unit test
+manual at authz > tests > README.md
+
+
+---
+#### Notice:
+you need to write your codes based on pep8 style guid standard:
+https://www.python.org/dev/peps/pep-0008/
+
+there are 3 packages that help you out for that:
+isort: sort all imports that we have in our codes
+flake8: will return the lines that have standard problem in our codes
+black: will fix all these items
+```
+pip install isort flake8 black
+flake8 authz/
+isort authz/
+black authz/
+```
